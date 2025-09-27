@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roundglass Sports</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    
+    /* Header Styles */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: #007BFF;
+    }
+    
+    .btn-primary {
+      background: #007BFF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), url('photo.jpeg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .section {
+      padding: 4rem 0;
+    }
+    
+    .section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #2c3e50;
+    }
+    
+    /* Programs Grid */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .program-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    .program-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    
+    .program-card p {
+      margin-bottom: 1.5rem;
+      color: #666;
+    }
+    
+    .program-card a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    /* News Section */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .news-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .news-card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .news-content {
+      padding: 1.5rem;
+    }
+    
+    .news-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+    
+    .news-card p {
+      color: #666;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .news-card a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #2c3e50;
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: #ecf0f1;
+    }
+    
+    .footer-section p, .footer-section a {
+      color: #bdc3c7;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .footer-section a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #34495e;
+      color: #bdc3c7;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section h2 {
+        font-size: 2rem;
+      }
+      
+      .programs-grid,
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">Roundglass Sports</div>
+      <div class="nav-links">
+        <a href="#football">Football</a>
+        <a href="#hockey">Hockey</a>
+        <a href="#tennis">Tennis</a>
+        <a href="#talents">Talents</a>
+        <a href="#phl">PHL 2025</a>
+        <a href="#register" class="btn-primary">Register for Tryouts</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Transforming Sport in India</h1>
+    <p>Roundglass Sports is on a mission to galvanize the ecosystem around competitive sports in India.</p>
+    <a href="#programs" class="btn-primary">Learn More</a>
+  </section>
+
+  <section class="section" id="programs">
+    <div class="container">
+      <h2>Our Programs</h2>
+      <div class="programs-grid">
+        <div class="program-card">
+          <h3>Punjab Football Club</h3>
+          <p>Established in 2020, Punjab FC is a rising force in Indian football which is dedicated to channeling youth energy towards the sport and elevating India's presence on the global football stage.</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div class="program-card">
+          <h3>Roundglass Hockey Academy</h3>
+          <p>Our grassroots initiative on promoting Hockey in the state of Punjab</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div class="program-card">
+          <h3>Roundglass Tennis Academy</h3>
+          <p>Redefining junior player development, shaping champions and fostering wellbeing in every Tennis athlete's journey.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <h3 style="color: #2c3e50; margin-bottom: 1rem;">A Wholistic Spirit of Play</h3>
+        <p style="color: #666; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+          We promote world-class standards in our Senior team, Academy teams and Grassroot initiatives. Our programs are underpinned by the principles of wholistic wellbeing.
+        </p>
+        <a href="#register" class="btn-primary">Register for Tryouts</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="news">
+    <div class="container">
+      <h2>News Updates</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 3rem;">The latest developments on what's happening at RoundGlass Sports</p>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Roundglass Hockey Academy's Gurjot Singh, Arshdeep Singh and Princedeep Singh Selected for Junior Asia Cup 2024</h4>
+            <p>Roundglass Hockey Academy (RGHA) forwards Gurjot Singh and Arshdeep Singh and goalkeeper Princedeep Singh were named in the 20-member Junior Indian team for the upcoming Men's Junior Asia Cup 2024 which is scheduled to be held in Muscat, Oman from November 26th to December 4th.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Mohali academy defeat Odisha team 5-2 to clinch title</h4>
+            <p>The Round Glass Hockey Academy, Mohali, defeated Odisha Naval Tata High Performance Centre, Bhubaneswar, by 5-2 to clinch the title of the 18th All-India Balwant Singh Kapur Hockey Tournament for Mata Prakash Kaur Cup (Under 19 Boys).</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Amandeep scores hat-trick as Round Glass trounce Army Boys 5-4 in hockey tourney</h4>
+            <p>In the opening match of the 18th All India Balwant Singh Kapur Hockey Tournament (Under-19 Boys) which started at the Olympian Surjit Hockey Stadium, Jalandhar, Round Glass Hockey Academy, Mohali defeated Army Boys, Bangalore 5-4 after a tough contest.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Four Players from Roundglass Hockey Academy Picked in the Hockey India League Auction</h4>
+            <p>Roundglass Hockey Academy (RGHA) players, Gurjot Singh, Arshdeep Singh, Gursewak Singh and Princedeep Singh were picked up by various teams in the recently concluded Hockey India League Auction at New Delhi.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Round Glass Academy Claims Victory with 4-1 Win Over Army Boys in Final</h4>
+            <p>Round Glass Academy delivered a dominant performance to claim the 8th SNBP All India Boys (Under-16) Hockey Tournament at the Shiv Chhatrapati Sports Complex, Balewadi-Mhalunge, on Sunday.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Nine Roundglass Hockey Academy players to represent Punjab in sub-junior nationals</h4>
+            <p>Nine Players from Roundglass Hockey Academy were selected to represent Hockey Punjab in the 14th Hockey India Sub-Junior Men Championship 2024, which will be held at Chandigarh from Monday.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Giuseppe Cristaldi appointed Technical Director of Punjab FC's Youth Program</h4>
+            <p>Punjab FC has appointed Giuseppe Cristaldi as the Technical Director of the Youth Program. The Italian will head the youth setup that has been hugely successful the past season, winning the RFDL National Championship and the Dream Sports Championship.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Karman Kaur Thandi wins title in Evansville</h4>
+            <p>Third seed Karman Kaur Thandi defeated fourth ranked Yuliia Starodubteva of Ukraine 7-5, 4-6, 6-1 in the final of the $60,000 ITF women's tennis tournament at Evansville, USA.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        
+        <div class="news-card">
+          <div class="news-content">
+            <h4>Karman Kaur Thandi signs off with runners-up place in Saskatoon</h4>
+            <p>India's Karman Kaur Thandi and her women's doubles partner Canadian Stacey Fung finished runners-up at the ITF W60 Saskatoon Challenger tennis tournament, here on Sunday.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Get in Touch</h3>
+          <p>We would love to hear from you!</p>
+          <p><strong>United States</strong><br>
+          +1 (425) 454-2113<br>
+          1756 114th AVE SE<br>
+          Bellevue, WA 98004</p>
+          <p><strong>India</strong><br>
+          +91-11 39585644<br>
+          IT C-7 KMG Tower 2nd Floor, Sector 67,<br>
+          SAS Nagar Mohali – 160062, Punjab</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Wholistic Wellbeing for a better life</h3>
+          <a href="#">About Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Help</a>
+          <a href="#">FAQ</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Get the Roundglass Living App</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Download Our App</h3>
+          <p>Let the power of meditation & mindfulness help you achieve a healthier, happier you!</p>
+          <a href="#" style="display: inline-block; margin: 0.5rem 0;">Download from AppStore</a>
+          <a href="#" style="display: inline-block; margin: 0.5rem 0;">Download from Google Play</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Roundglass. All rights reserved.</p>
+        <p>
+          <a href="#">Cookie Policy</a> | 
+          <a href="#">Privacy Policy</a> | 
+          <a href="#">Terms of Use</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '68d7d324d1409c6c3041f80e' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            }
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>
